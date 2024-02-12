@@ -1191,15 +1191,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   public increaseZoomLevel(): void {
-    if (this.appState.currentZoomLevel < 2.5) {
-      this.appState.currentZoomLevel = this.appState.currentZoomLevel + 0.1;
+    if (this.appState.currentZoomLevel < 1.7) {
+      this.appState.currentZoomLevel = this.appState.currentZoomLevel + 0.2;
       this.electronService.webFrame.setZoomFactor(this.appState.currentZoomLevel);
     }
   }
 
   public decreaseZoomLevel(): void {
-    if (this.appState.currentZoomLevel > 0.6) {
-      this.appState.currentZoomLevel = this.appState.currentZoomLevel - 0.1;
+    if (this.appState.currentZoomLevel > 0.4) {
+      this.appState.currentZoomLevel = this.appState.currentZoomLevel - 0.2;
       this.electronService.webFrame.setZoomFactor(this.appState.currentZoomLevel);
     }
   }
@@ -1962,9 +1962,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
   restoreSettingsFromBefore(settingsObject: SettingsObject): void {
     if (settingsObject.appState) {
       this.appState = settingsObject.appState;
-      if (!settingsObject.appState.currentZoomLevel) {  // catch error <-- old VHA apps didn't have `currentZoomLevel`
+     /* if (!settingsObject.appState.currentZoomLevel) {  // catch error <-- old VHA apps didn't have `currentZoomLevel`
         this.appState.currentZoomLevel = 1;             // TODO -- remove whole block -- not needed any more !?!?!?!??!?! -----------------!
-      }
+      }*/
       if (!settingsObject.appState.imgsPerRow) {
         this.appState.imgsPerRow = DefaultImagesPerRow;
       }
