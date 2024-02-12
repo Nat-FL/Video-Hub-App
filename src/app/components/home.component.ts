@@ -1190,6 +1190,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.electronService.ipcRenderer.send('please-open-url', 'https://www.videohubapp.com');
   }
 
+  //updated parameters/values of zoom level to fix extra spacing isuue
   public increaseZoomLevel(): void {
     if (this.appState.currentZoomLevel < 1.7) {
       this.appState.currentZoomLevel = this.appState.currentZoomLevel + 0.2;
